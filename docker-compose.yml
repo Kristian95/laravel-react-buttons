@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # Laravel API Backend
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "8000:80" # Expose Laravel on port 8000
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - db
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel_db
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: secret
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3307:3307"
+
+  # React.js Frontend
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000" # Expose React on port 3000
+    volumes:
+      - ./frontend:/usr/src/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    command: "npm start"
+
+volumes:
+  db_data:
