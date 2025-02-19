@@ -10,6 +10,8 @@ COPY package*.json ./
 # Install dependencies including axios and react-router-dom
 RUN npm install
 
+RUN npm install @fortawesome/fontawesome-free
+
 # Copy the React app files into the container
 COPY . .
 

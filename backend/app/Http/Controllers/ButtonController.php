@@ -26,7 +26,6 @@ class ButtonController extends Controller
         $button = Button::updateOrCreate(
             ['id' => $id],
             [
-                'label' => $request->input('label'),
                 'color' => $request->input('color'),
                 'link'  => $request->input('link'),
             ]
@@ -55,7 +54,8 @@ class ButtonController extends Controller
     public function destroy($id): JsonResponse
     {
         $button = Button::findOrFail($id);
-        $button->delete();
+        $button->hyperlink = null;
+        $button->save();
 
         return response()->json(['message' => 'Button deleted successfully.']);
     }

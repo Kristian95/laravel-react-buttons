@@ -22,7 +22,6 @@ class ButtonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'label' => 'required|string|max:255',
             'color' => 'required|string|max:50',
             'link'  => 'required|url',
         ];
@@ -34,8 +33,6 @@ class ButtonRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'label.required' => 'The button label is required.',
-            'label.string'   => 'The button label must be a string.',
             'label.max'      => 'The button label must not exceed 255 characters.',
             'color.required' => 'The button color is required.',
             'color.string'   => 'The button color must be a string.',

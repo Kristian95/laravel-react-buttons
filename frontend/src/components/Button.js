@@ -1,16 +1,41 @@
 import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Button = ({ button, onClick }) => {
     return (
-        <div className="col-lg-4 col-md-6 col-12 mb-3">
-            <button
-                className="btn w-100"
-                style={{ backgroundColor: button.color, color: 'white' }}
-                onClick={onClick}
+        <div className="col-lg-4 col-md-6 col-12 mb-3 position-relative">
+            <div style={{ display: 'flex' }}>
+                <button className="btn" style={{ width: '10%', height: '10%' }}>
+                    <i className="fa-solid fa-pen text-primary"
+                       style={{ backgroundColor: 'white', color: 'black'}}
+                    ></i>
+                </button>
+                <button className="btn" style={{ width: '10%', height: '10%' }}>
+                    <i className="fa-solid fa-trash text-danger"
+                       style={{ backgroundColor: 'white', color: 'black'}}
+                    ></i>
+                </button>
+            </div>
+
+            <button className="btn w-100 d-flex align-items-center justify-content-center p-4"
+                    onClick={onClick}
             >
-                X
+                <i className="fa-solid fa-plus"
+                   style={{ backgroundColor: button.color, color: 'white', borderRadius: '15%' }}
+                ></i>
             </button>
         </div>
+
+    // <div className="col-lg-4 col-md-6 col-12 mb-3">
+    //         <button
+    //             className="btn w-100"
+    //             onClick={onClick}
+    //         >
+    //             <i className="fa-solid fa-plus"
+    //                style={{ backgroundColor: button.color, color: 'white', borderRadius: '15%' }}
+    //             ></i>
+    //         </button>
+    //     </div>
     );
 };
 
