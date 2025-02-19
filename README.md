@@ -22,5 +22,5 @@ Ensure you have the following installed on your machine:
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/your-repo/laravel-react-docker.git
-cd laravel-react-docker
+git clone git@github.com:Kristian95/laravel-react-buttons.git
+cd laravel-react-buttons

@@ -1,0 +1,66 @@
+/* HeaderWithButtons.css */
+
+.container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    margin: 0;
+}
+
+.divider {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ccc;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 buttons per row */
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* 1 button per row on small screens */
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button within its container */
+}
+
+.btn {
+    width: 100%; /* Full width of the button container */
+    height: 100px; /* Increased height for larger buttons */
+    color: white;
+    border: none;
+    border-radius: 10px; /* Rounded corners for buttons */
+    cursor: pointer;
+    font-size: 40px; /* Larger font size for "X" */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    transition: transform 0.3s; /* Smooth scaling on hover */
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
