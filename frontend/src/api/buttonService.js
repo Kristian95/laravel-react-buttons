@@ -13,3 +13,7 @@ export const updateButton = async (id, buttonData) => {
     const response = await axios.post(`${API_URL}/${id}`, buttonData);
     return response.data;
 };
+
+export const deleteButton = async (id) => {
+    return await axios.delete(`${API_URL}/${id}`);
+};

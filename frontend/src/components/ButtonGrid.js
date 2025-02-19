@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getButtons } from '../api/buttonService';
+import {deleteButton, getButtons} from '../api/buttonService';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
 import '../HeaderWithButtons.css';
@@ -24,6 +24,12 @@ const ButtonGrid = () => {
         }
     };
 
+    const handleButtonDelete = async (button) => {
+        if (window.confirm('Are you sure you want to delete this button?')) {
+            await deleteButton(button.id);
+        }
+    }
+
     return (
         <div className="container">
             <header className="header">
@@ -36,6 +42,7 @@ const ButtonGrid = () => {
                         key={button.id}
                         button={button}
                         onClick={() => handleButtonClick(button)}
+                        onDelete={() => handleButtonDelete(button)}
                     />
                 ))}
             </div>

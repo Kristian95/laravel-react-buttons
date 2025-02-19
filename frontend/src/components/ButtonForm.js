@@ -32,14 +32,14 @@ const ButtonForm = () => {
     };
 
     return (
-        <div className="container my-4 p-4 shadow-lg rounded bg-white">
-            <h3 className="mb-4 text-center fw-bold">{id ? 'Edit' : 'Add'} Button</h3>
+        <div className="container my-4 p-4 shadow-lg rounded bg-white w-50">
+            <h3 className="mb-4 text-center fw-bold">{id ? 'Edit' : 'Add'} Box</h3>
             <form onSubmit={handleSubmit}>
                 {/* Color Input */}
                 <div className="mb-3">
                     <label className="form-label fw-semibold">Button Color</label>
                     <input
-                        type="color"
+                        type="text"
                         className="form-control form-control-color w-100 p-2 border rounded"
                         value={color}
                         onChange={(e) => setColor(e.target.value)}
@@ -60,9 +60,9 @@ const ButtonForm = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="d-flex justify-content-between mt-4 gap-3">
-                    <button type="button" className="btn btn-outline-secondary px-4" onClick={() => navigate(-1)}>Cancel</button>
-                    <button type="submit" className="btn btn-primary px-4">Save</button>
+                <div className="d-flex justify-content-between mt-4 gap-3 w-50">
+                    <button type="button" className="btn-sm btn-primary">Cancel</button>
+                    <button type="button" className="btn-sm btn-primary">Save</button>
                 </div>
             </form>
         </div>
