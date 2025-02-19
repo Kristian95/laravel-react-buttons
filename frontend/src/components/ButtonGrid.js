@@ -24,6 +24,10 @@ const ButtonGrid = () => {
         }
     };
 
+    const handleButtonUpdate = (button) => {
+        navigate(`/configure/${button.id}`);
+    };
+
     const handleButtonDelete = async (button) => {
         if (window.confirm('Are you sure you want to delete this button?')) {
             await deleteButton(button.id);
@@ -43,6 +47,7 @@ const ButtonGrid = () => {
                         button={button}
                         onClick={() => handleButtonClick(button)}
                         onDelete={() => handleButtonDelete(button)}
+                        onUpdate={() => handleButtonUpdate(button)}
                     />
                 ))}
             </div>

@@ -1,11 +1,14 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const Button = ({ button, onClick, onDelete }) => {
+const Button = ({ button, onClick, onDelete, onUpdate }) => {
     return (
         <div>
             <div style={{ display: 'flex' }}>
-                <button className="btn" style={{ width: '10%', height: '10%', backgroundColor: 'azure' }}>
+                <button className="btn"
+                    style={{ width: '10%', height: '10%', backgroundColor: 'azure' }}
+                    onClick={onUpdate}
+                >
                     <i className="fa-solid fa-pen text-primary"
                        style={{ backgroundColor: 'white', color: 'black'}}
                     ></i>

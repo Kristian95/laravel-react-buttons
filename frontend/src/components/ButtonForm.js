@@ -14,8 +14,8 @@ const ButtonForm = () => {
                 const buttons = await getButtons();
                 const button = buttons.find(b => b.id.toString() === id);
                 if (button) {
-                    setColor(button.color);
-                    setHyperlink(button.hyperlink);
+                    setColor(button.color || ''); // Ensure it's a string
+                    setHyperlink(button.hyperlink || ''); // Ensure it's a string
                 }
             }
         };
@@ -34,7 +34,7 @@ const ButtonForm = () => {
     return (
         <div className="container my-4 p-4 shadow-lg rounded bg-white w-50">
             <h3 className="mb-4 text-center fw-bold">{id ? 'Edit' : 'Add'} Box</h3>
-            <form onSubmit={handleSubmit}>
+            <form>
                 {/* Color Input */}
                 <div className="mb-3">
                     <label className="form-label fw-semibold">Button Color</label>
@@ -51,7 +51,7 @@ const ButtonForm = () => {
                 <div className="mb-3">
                     <label className="form-label fw-semibold">Hyperlink</label>
                     <input
-                        type="url"
+                        type="text"
                         className="form-control p-2 border rounded"
                         value={hyperlink}
                         onChange={(e) => setHyperlink(e.target.value)}
@@ -60,13 +60,24 @@ const ButtonForm = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="d-flex justify-content-between mt-4 gap-3 w-50">
-                    <button type="button" className="btn-sm btn-primary">Cancel</button>
-                    <button type="button" className="btn-sm btn-primary">Save</button>
+                <div className="d-flex justify-content-between mt-4 gap-2 w-50">
+                    <button
+                        type="button"
+                        className="btn btn-sm btn-outline-secondary p-1 fs-7"
+                        onClick={() => navigate('/')}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        className="btn btn-sm btn-primary p-1 fs-7"
+                        onClick={handleSubmit} // Call handleSubmit manually
+                    >
+                        Save
+                    </button>
                 </div>
             </form>
         </div>
-
     );
 };
 
