@@ -27,7 +27,7 @@ const ButtonGrid = () => {
     return (
         <div className="container">
             <header className="header">
-                <h1></h1>
+                <h1>Shkolo</h1>
                 <hr className="divider" />
             </header>
             <div className="grid">
