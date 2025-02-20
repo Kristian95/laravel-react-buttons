@@ -21,13 +21,14 @@ class ButtonController extends Controller
      * @param $id
      * @return JsonResponse
      */
-    public function storeOrUpdate(ButtonRequest $request, $id = null): JsonResponse
+    public function storeOrUpdate(ButtonRequest $request): JsonResponse
     {
+		$id = $request->get('id') ?? 0;
         $button = Button::updateOrCreate(
             ['id' => $id],
             [
                 'color' => $request->input('color'),
-                'link'  => $request->input('link'),
+                'hyperlink'  => $request->input('hyperlink'),
             ]
         );
 
@@ -35,16 +36,6 @@ class ButtonController extends Controller
             'message' => $id ? 'Button updated successfully!' : 'Button created successfully!',
             'button'  => $button
         ]);
-    }
-
-    public function update(ButtonRequest $request, $id): JsonResponse
-    {
-        $button = Button::findOrFail($id);
-        $button->color = $request->color;
-        $button->hyperlink = $request->hyperlink;
-        $button->save();
-
-        return response()->json(['message' => 'Button updated successfully.']);
     }
 
     /**

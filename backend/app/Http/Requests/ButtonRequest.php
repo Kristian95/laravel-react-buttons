@@ -11,7 +11,7 @@ class ButtonRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,7 @@ class ButtonRequest extends FormRequest
     {
         return [
             'color' => 'required|string|max:50',
-            'link'  => 'required|url',
+            'hyperlink'  => 'required|url',
         ];
     }
 
@@ -33,12 +33,12 @@ class ButtonRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'label.max'      => 'The button label must not exceed 255 characters.',
+            'hyperlink.max'      => 'The button label must not exceed 255 characters.',
             'color.required' => 'The button color is required.',
             'color.string'   => 'The button color must be a string.',
             'color.max'      => 'The button color must not exceed 50 characters.',
-            'link.required'  => 'The button link is required.',
-            'link.url'       => 'The button link must be a valid URL.',
+            'hyperlink.required'  => 'The button link is required.',
+            'hyperlink.url'       => 'The button link must be a valid URL.',
         ];
     }
 }

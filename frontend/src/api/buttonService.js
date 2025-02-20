@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
 const API_URL = 'http://localhost:8000/api/buttons';
 
 export const getButtons = async () => {
@@ -10,7 +8,7 @@ export const getButtons = async () => {
 };
 
 export const updateButton = async (id, buttonData) => {
-    const response = await axios.post(`${API_URL}/${id}`, buttonData);
+    const response = await axios.post(`${API_URL}`, buttonData);
     return response.data;
 };
 

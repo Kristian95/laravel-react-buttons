@@ -1,20 +1,9 @@
-// ButtonEditor.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
 const ButtonEditor = ({ button, onDelete }) => {
     const [color, setColor] = useState(button.color);
     const [hyperlink, setHyperlink] = useState(button.hyperlink);
-
-    const handleUpdate = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post(`/api/buttons/${button.id}`, { color, hyperlink });
-            alert('Button updated successfully.');
-        } catch (error) {
-            console.error('Error updating button:', error);
-        }
-    };
 
     const handleDelete = async () => {
         if (window.confirm('Are you sure you want to delete this button?')) {
@@ -29,7 +18,7 @@ const ButtonEditor = ({ button, onDelete }) => {
 
     return (
         <div className="button-editor">
-            <form onSubmit={handleUpdate}>
+            <form>
                 <input
                     type="text"
                     value={color}

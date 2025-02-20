@@ -26,6 +26,7 @@ const ButtonForm = () => {
         e.preventDefault();
         const buttonData = { color, hyperlink };
         if (id) {
+            buttonData.id = id;
             await updateButton(id, buttonData);
         }
         navigate('/');
@@ -63,15 +64,17 @@ const ButtonForm = () => {
                 <div className="d-flex justify-content-between mt-4 gap-2 w-50">
                     <button
                         type="button"
-                        className="btn btn-sm btn-outline-secondary p-1 fs-7"
+                        className="btn btn-sm btn-primary"
                         onClick={() => navigate('/')}
+                        style={{ height: '3rem', width: '8rem', fontSize: '20px' }}
                     >
                         Cancel
                     </button>
                     <button
                         type="button"
-                        className="btn btn-sm btn-primary p-1 fs-7"
-                        onClick={handleSubmit} // Call handleSubmit manually
+                        className="btn btn-sm btn-primary"
+                        onClick={handleSubmit}
+                        style={{ height: '3rem', width: '8rem', fontSize: '20px' }}
                     >
                         Save
                     </button>
