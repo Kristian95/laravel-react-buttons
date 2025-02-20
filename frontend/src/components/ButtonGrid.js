@@ -29,7 +29,7 @@ const ButtonGrid = () => {
     };
 
     const handleButtonDelete = async (button) => {
-        if (window.confirm('Are you sure you want to delete this button?')) {
+        if (window.confirm('Are you sure you want to reset this configuration?')) {
             await deleteButton(button.id);
         }
     }
