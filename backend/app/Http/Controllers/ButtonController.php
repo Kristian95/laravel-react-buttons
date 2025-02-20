@@ -48,7 +48,7 @@ class ButtonController extends Controller
         $button->hyperlink = null;
         $button->save();
 
-        return response()->json(['message' => 'Button deleted successfully.']);
+        return response()->json(['message' => 'Button reset configuration successfully.']);
     }
 
 }

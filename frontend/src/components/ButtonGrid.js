@@ -31,6 +31,12 @@ const ButtonGrid = () => {
     const handleButtonDelete = async (button) => {
         if (window.confirm('Are you sure you want to reset this configuration?')) {
             await deleteButton(button.id);
+
+            setButtons((prevButtons) =>
+                prevButtons.map((b) =>
+                    b.id === button.id ? { ...b, hyperlink: null } : b
+                )
+            );
         }
     }
 
