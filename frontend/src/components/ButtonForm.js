@@ -7,6 +7,7 @@ const ButtonForm = () => {
     const navigate = useNavigate();
     const [color, setColor] = useState('');
     const [hyperlink, setHyperlink] = useState('');
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchButton = async () => {
@@ -27,14 +28,19 @@ const ButtonForm = () => {
         const buttonData = { color, hyperlink };
         if (id) {
             buttonData.id = id;
-            await updateButton(id, buttonData);
+            try {
+                await updateButton(id, buttonData);
+                navigate('/');
+            } catch (error) {
+                setError('Failed to update button: ' + error.response.data.message);
+            }
         }
-        navigate('/');
     };
 
     return (
         <div className="container my-4 p-4 shadow-lg rounded bg-white w-50">
             <h3 className="mb-4 text-center fw-bold">{id ? 'Edit' : 'Add'} Box</h3>
+            {error && <div className="alert alert-danger">{error}</div>}
             <form>
                 {/* Color Input */}
                 <div className="mb-3">
