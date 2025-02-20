@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api/buttons';
+const API_URL = 'https://your-railway-app.up.railway.app/api/buttons';
 
 export const getButtons = async () => {
     const response = await axios.get(API_URL);
